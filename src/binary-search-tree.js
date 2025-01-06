@@ -121,6 +121,62 @@ class BinarySearchTree {
             }
         }
     }
+    remove(data){
+        if(data===this.rootAll.right.data&&this.rootAll.right.right===null&&this.rootAll.right.left===null){
+            return this.rootAll.right=null
+         }
+         if(data===this.rootAll.right.data&&this.rootAll.right.right===null&&this.rootAll.right.left!==null){
+            // this.rootAll.right.data=this.rootAll.right.left.data
+            console.log('dffd')
+            return this.rootAll.right=this.rootAll.right.left
+         }
+         if(data===this.rootAll.right.data&&this.rootAll.right.right!==null&&this.rootAll.right.left===null){
+            return this.rootAll.right==this.rootAll.right.right
+         }
+        //  if(data===this.rootAll.right.data&&this.rootAll.right.right!==null&&this.rootAll.right.left!==null){
+        //     return this.rootAll.right==this.rootAll.right.right
+        //  }
+         if(data===this.rootAll.left.data&&this.rootAll.left.right===null&&this.rootAll.left.left===null){
+            return this.rootAll.left=null
+         }
+         if(data===this.rootAll.left.data&&this.rootAll.left.right===null&&this.rootAll.left.left!==null){
+            return this.rootAll.left=this.rootAll.left.left
+         }
+         if(data===this.rootAll.left.data&&this.rootAll.left.right!==null&&this.rootAll.left.left===null){
+            return this.rootAll.left=this.rootAll.left.right
+         }
+        if(data===this.rootAll.data){
+            return this.rootAll
+         }else if(data>this.rootAll.data){
+            return func2(this.rootAll.right, data)
+         }else if(data<this.rootAll.data){
+            return func2(this.rootAll.left, data)
+         }
+        
+         function func2(rootAll, data){
+          
+            if(data===rootAll.right.data&&rootAll.right.right===null&&rootAll.right.left===null){
+               return rootAll.right=null
+            }
+            if(data===rootAll.left.data&&rootAll.left.right===null&&rootAll.left.left===null){
+                return rootAll.left=null
+             }
+             if(data>rootAll.data){
+                 if(rootAll.right===null){
+                     return null
+                 }else{
+                     return func2(rootAll.right, data)
+                 }
+             }else if(data<rootAll.data){
+                 if(rootAll.left===null){
+                     return null
+                 }else{
+                    return func2(rootAll.left, data)
+                 }
+           
+         }
+    }
+    }
 }
 
 module.exports = {
